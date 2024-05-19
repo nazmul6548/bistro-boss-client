@@ -1,0 +1,34 @@
+.mySwiper {
+    width: 100%;
+    height: 100%;
+    
+}
+.slide{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 90vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    align-items: center;
+    background-size: cover;
+    
+}
+.slide1{
+    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.ibb.co/tQYJ252/pexels-a-darmel-7862517.jpg');
+    background-position: center;
+    background-size: cover;
+}
+.slide2{
+    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.ibb.co/BPvHkVr/pexels-pit0chka-10416213.jpg');
+}
+.slide3{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('https://i.ibb.co/rQ4ZgJk/pexels-sora-shimazaki-5926382.jpg');
+    background-position: center;
+    background-size: cover;
+}
+.slide4{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('https://i.ibb.co/b2YjDqH/pexels-designecologist-1779487.jpg');
+    background-position: center;
+    background-size: cover;
+}
