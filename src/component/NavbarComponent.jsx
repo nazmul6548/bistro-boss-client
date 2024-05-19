@@ -36,13 +36,13 @@ export const NavbarComponent = () => {
     
   // }
   return (
-    <Navbar fluid={true} className="bg-[#000000]  top-0 text-yellow-50">
+    <Navbar  className="bg-[#000000] fixed z-10 w-full max-w-screen-xl bg-opacity-30 text-yellow-50">
       <Navbar.Container className="flex items-center  justify-between">
         <Navbar.Brand>
           <img
             src="https://svgshare.com/i/15zq.svg"
             alt="keep"
-            width="100"
+            width="80"
             height="40"
           />
         </Navbar.Brand>

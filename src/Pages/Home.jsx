@@ -1,4 +1,6 @@
-// import Slide from "../component/Slide";
+import Slide from "../component/Slide";
+
+
 
 
 
@@ -9,7 +11,7 @@
 const Home = () => {
     return (
         <div>
-     {/* <Slide></Slide> */}
+     <Slide></Slide>
         </div>
     );
 };
