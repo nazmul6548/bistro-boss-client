@@ -1,5 +1,5 @@
 "use client";
-import { Navbar } from "keep-react";
+import { Navbar, Tooltip } from "keep-react";
 // import { Navbar, TextInput } from "keep-react";
 import {
   CaretDown,
@@ -8,15 +8,39 @@ import {
   
   TwitterLogo,
 } from "phosphor-react";
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "./AuthProvider";
 
 export const NavbarComponent = () => {
+  const {user,loader,logout,}= useContext(AuthContext)
+
+  // const [theme,setTheme] = useState("light")
+
+  // useEffect(()=>{
+  //     localStorage.setItem("theme",theme);
+  //     const item = localStorage.getItem("theme");
+      
+  //         document.querySelector("html").setAttribute("data-theme",item);
+      
+  //         },[theme])  
+
+
+  // const handleTheme = e => {
+     
+  //     if (e.target.checked) {
+  //         setTheme("dark")
+  //     }else{
+  //         setTheme("light")
+  //     }
+    
+  // }
   return (
     <Navbar fluid={true} className="bg-[#000000]  top-0 text-yellow-50">
       <Navbar.Container className="flex items-center  justify-between">
         <Navbar.Brand>
           <img
-            src="/images/keep.svg"
+            src="https://svgshare.com/i/15zq.svg"
             alt="keep"
             width="100"
             height="40"
@@ -42,10 +66,40 @@ export const NavbarComponent = () => {
               iconAnimation={false}
             /> */}
             <li>Home</li>
-            <NavLink to="/login">LogIn</NavLink>
+            
             {/* <li>LogIn</li> */}
-            <li>Register</li>
-            <li>about</li>
+            <NavLink to="/register">Register</NavLink>
+            {/*  */}
+            {user ? (
+            <div className="dropdown dropdown-hover">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-xl ">
+                
+                <a id="clickable"><img src={user?.photoURL || <p>user</p>} alt="" /></a>
+                <Tooltip className='' anchorSelect="#clickable" clickable>
+                <button> {user?.displayName || "not found"}</button>
+                <div className="mt-2 rounded-md">
+                <button onClick={logout} className="btn btn-sm text-white ">LogOut</button>
+                </div>
+
+                </Tooltip>
+              </div>
+            </label>
+            {/*  */}
+          
+          </div>
+        ) : (
+          <Link to="/login">
+            <button className="btn btn-sm te  text-white ml-2 mr-2">Login</button>
+          </Link>
+          
+
+        )}
+        
+        
+        
+      
+            
           </Navbar.Container>
           <Navbar.Container className="flex gap-1">
             <Navbar.Toggle className="block" />
@@ -70,6 +124,17 @@ export const NavbarComponent = () => {
             //   className="!py-0"
             />
             </NavLink>
+            <NavLink to="/register">
+                <Navbar.Link
+              linkName="Register"
+
+            //   icon={<CaretDown size={20} />}
+            //   className="!py-0"
+            />
+            </NavLink>
+            <div>
+            <button onClick={logout} className="btn btn-sm bg-white">LogOut</button>
+                </div>
             <Navbar.Link
               linkName="Register"
               icon={<CaretDown size={20} />}

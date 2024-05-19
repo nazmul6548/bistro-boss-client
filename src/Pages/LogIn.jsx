@@ -19,7 +19,7 @@ const LogIn = () => {
     const inputRef = useRef(null)
     const [disabled,setDisabled] =useState(true)
     // const { scrollYProgress } = useScroll();
-    const {googlelogin} = useContext(AuthContext)
+    const {login,googlelogin} = useContext(AuthContext)
     console.log(googlelogin);
     const [errorMessage, setErrorMessage] = useState("");
     const navigate = useNavigate()
@@ -33,30 +33,30 @@ const LogIn = () => {
         const password = form.password.value;
         const res ={email, password};
         console.log(res);
-        // login(email, password)
-        // .then(result => {
-        //     if (result.user) {
-        //         navigate(div ,{replace:true})
-        //         console.log(result.user);
-        //     }
-        //     // const user =  result.user;
-        //     // console.log(user);
-        // })
-        // .then(() => {
-        //     swal({
-        //       title: "LogIn successful",
-        //       // text: "You clicked the button!",
-        //       icon: "success",
-        //       // button: "Aww yiss!",
+        login(email, password)
+        .then(result => {
+            if (result.user) {
+                navigate(div ,{replace:true})
+                console.log(result.user);
+            }
+            // const user =  result.user;
+            // console.log(user);
+        })
+        .then(() => {
+            swal({
+              title: "LogIn successful",
+              // text: "You clicked the button!",
+              icon: "success",
+              // button: "Aww yiss!",
               
               
-        //     });
-        // })
-        // .catch(error => {
-        //     setErrorMessage(error.message);
-        //     console.log(error.message)
+            });
+        })
+        .catch(error => {
+            setErrorMessage(error.message);
+            console.log(error.message)
 
-        // });
+        });
 
     }
     const googleButton = ()=>{

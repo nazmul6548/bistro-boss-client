@@ -9,7 +9,7 @@ import { NavbarComponent } from "./component/NavbarComponent";
 const Root = () => {
     const location = useLocation()
     console.log(location);
-    const cancel =location.pathname.includes("/login")
+    const cancel =location.pathname.includes("/login") || location.pathname.includes("/register")
     return (
         <div>
             { cancel || <NavbarComponent></NavbarComponent>}
