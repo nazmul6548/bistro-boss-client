@@ -1,6 +1,8 @@
+
 import { useLoaderData } from "react-router-dom";
 import Slide from "../component/Slide";
-import Latestblog from "../component/Latestblog";
+
+import TabCategory from "../component/TabCategory";
 
 
 
@@ -11,16 +13,13 @@ import Latestblog from "../component/Latestblog";
 
 
 const Home = () => {
-    const item = useLoaderData()
-    console.log(item);
+    const food = useLoaderData()
+    console.log(food);
     return (
         <div>
      <Slide></Slide>
-     <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-     {
-        item.map(i =><Latestblog key={item._id} i={i}></Latestblog>)
-     }
-     </div>
+     <TabCategory></TabCategory>
+    
         </div>
     );
 };

@@ -7,6 +7,7 @@ import Root from "./Root";
 import Home from "./Pages/Home";
 import LogIn from "./Pages/LogIn";
 import Register from "./Pages/Register";
+import TabCategory from "./component/TabCategory";
 
 
 
@@ -28,6 +29,7 @@ export const router = createBrowserRouter([
             }
             return response.json();
         },
+         
       },
       {
           path:"/login",
@@ -36,6 +38,11 @@ export const router = createBrowserRouter([
       {
         path:"/register",
         element:<Register></Register>
+      },
+      {
+        path:"/tab",
+        element:<TabCategory></TabCategory>,
+        
       }
     ]
   },
