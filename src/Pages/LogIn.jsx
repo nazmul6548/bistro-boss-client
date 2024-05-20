@@ -20,11 +20,13 @@ const LogIn = () => {
     const [disabled,setDisabled] =useState(true)
     // const { scrollYProgress } = useScroll();
     const {login,googlelogin} = useContext(AuthContext)
-    console.log(googlelogin);
+    // console.log(googlelogin);
     const [errorMessage, setErrorMessage] = useState("");
     const navigate = useNavigate()
     const location = useLocation()
-    const div =location?.state || '/';
+    const from = location.state?.from?.pathname || "/";
+ 
+    console.log('state in the location login page', location.state)
     const handleLogin =(e) => {
         e.preventDefault();
         const form = e.target;
@@ -35,23 +37,23 @@ const LogIn = () => {
         console.log(res);
         login(email, password)
         .then(result => {
-            if (result.user) {
-                navigate(div ,{replace:true})
-                console.log(result.user);
+            if (result) {
+                navigate(from, { replace: true });
+                // console.log(result.user);
             }
             // const user =  result.user;
             // console.log(user);
         })
-        .then(() => {
-            swal({
-              title: "LogIn successful",
-              // text: "You clicked the button!",
-              icon: "success",
-              // button: "Aww yiss!",
+        // .then(() => {
+        //     swal({
+        //       title: "LogIn successful",
+        //       // text: "You clicked the button!",
+        //       icon: "success",
+        //       // button: "Aww yiss!",
               
               
-            });
-        })
+        //     });
+        // })
         .catch(error => {
             setErrorMessage(error.message);
             console.log(error.message)
@@ -62,10 +64,11 @@ const LogIn = () => {
     const googleButton = ()=>{
       googlelogin()
       .then(() => {
-        swal({
-            title: "LogIn successful",
-            icon: "success",
-        });
+        // swal({
+        //     title: "LogIn successful",
+        //     icon: "success",
+        // });
+        navigate(from, { replace: true });
     })
     .catch(error => console.log(error));
     } 

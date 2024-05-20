@@ -30,7 +30,7 @@ const Footer = () => {
         <div className="grid max-sm:grid-cols-1 max-lg:grid-cols-2 lg:grid-cols-5 lg:gap-20 max-lg:gap-8">
           <div className="lg:col-span-3 max-lg:col-span-full">
             <Link to="#">
-              <img src="https://readymadeui.com/readymadeui-light.svg" alt="logo" className="w-48" />
+              <img src="https://svgshare.com/i/15zq.svg" alt="logo" className="w-20" />
             </Link>
             <p className="text-gray-300 text-sm lg:max-w-sm mt-6">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean gravida, mi eu pulvinar

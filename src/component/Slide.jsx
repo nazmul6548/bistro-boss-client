@@ -15,7 +15,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 const Slide = () => {
     
     return (
-        <div className="min-h-screen">
+        <div className="">
         <Swiper
           navigation={true}
           pagination={{ clickable: true }}
@@ -29,7 +29,7 @@ const Slide = () => {
             <div className="slide slide1 flex flex-col fixed min-h-screen">
               <div>
                 <h1 className="text-3xl md:text-6xl font-bold w-3/4 m-auto font-lato text-center text-white animate__animated animate__fadeInDownBig whitespace-nowrap">
-                On-Site Job
+                Vagitable Fruits
                 </h1>
                 <p className="w-3/4 m-auto text-white text-center mt-5 font-lato">An on-site job requires employees to work physically at a designated location, typically within a company's office or workplace.</p>
               </div>
@@ -57,7 +57,7 @@ const Slide = () => {
             <div className="slide slide2 flex flex-col">
               <div>
                 <h1 className="text-3xl md:text-6xl font-bold w-3/4 font-lato m-auto text-center text-white animate__animated animate__fadeInTopLeft whitespace-nowrap">
-                Remote Job
+                Vagitable Fruits
                 </h1>
                 <p className="w-3/4 m-auto text-white text-center mt-5 font-lato"> A remote job allows employees to work from any location outside of a traditional office setting, leveraging technology to communicate and collaborate with colleagues.</p>
               </div>
@@ -85,7 +85,7 @@ const Slide = () => {
             <div className="slide slide3 flex flex-col">
               <div>
                 <h1 className="text-3xl md:text-6xl font-bold w-3/4 m-auto text-center font-lato text-white animate__animated animate__fadeInBottomRight whitespace-nowrap">
-                Hybrid Job
+                Vagitable Fruits
                 </h1>
                 <p className="w-3/4 m-auto text-white text-center mt-5 font-lato"> A hybrid job combines elements of both on-site and remote work, allowing employees to split their time between working in a physical office and working remotely.</p>
               </div>
@@ -114,7 +114,7 @@ const Slide = () => {
             <div className="slide slide4 flex flex-col">
               <div>
                 <h1 className="text-3xl md:text-6xl font-bold w-3/4 m-auto text-center font-lato text-white animate__animated animate__fadeInBottomRight whitespace-nowrap">
-                Part-Time Job
+                Vagitable Fruits
                 </h1>
                 <p className="w-3/4 m-auto text-white text-center mt-5 font-lato">A part-time job involves working fewer hours than a full-time position, typically less than 40 hours per week. </p>
               </div>

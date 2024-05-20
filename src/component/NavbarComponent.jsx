@@ -1,6 +1,6 @@
 "use client";
 import { Navbar, Tooltip } from "keep-react";
-
+import { MdAddShoppingCart } from "react-icons/md";
 import { Toggle } from "keep-react";
 
 import {
@@ -11,12 +11,13 @@ import {
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
 import { useContext, useState } from "react";
+import useCart from "./useCart";
 
 
 export const NavbarComponent = () => {
   const {user,logout,}= useContext(AuthContext)
   const [toggle, setToggle] = useState(false)
-
+  const [cart] = useCart();
 //   const setToggle = e => {
        
 //     if (e.target.checked) {
@@ -44,6 +45,11 @@ export const NavbarComponent = () => {
             tag="ul"
             className="lg:flex hidden items-center justify-between gap-4"
           >
+            <div className="relative mr-3">
+            <MdAddShoppingCart className="font-bold text-2xl"/>
+    <span
+      className="bg-red-500 text-[10px] px-1.5 font-semibold min-w-[20px] h-5 flex items-center justify-center text-white rounded-full absolute -top-2 left-[60%]">{cart.length}+</span>
+  </div>
         
         <Toggle bgColor="primary" label="Toggle" size="md" withIcon={true} onChange={setToggle} />
             <li>Home</li>
@@ -120,7 +126,11 @@ export const NavbarComponent = () => {
             />
             <Navbar.Link linkName="About" className="!py-0" />
             <Navbar.Link linkName="Resources" className="!py-0" />
-            
+            <div className="relative flex ">
+            <MdAddShoppingCart className="font-bold text-2xl"/>
+    <span
+      className="bg-red-500 text-[10px] px-1.5 font-semibold min-w-[20px] h-5 flex items-start justify-start text-white rounded-full absolute -top-2 left-[10%]">{cart.length}+</span>
+  </div>
           </Navbar.Container>
         </Navbar.Collapse>
       </Navbar.Container>
