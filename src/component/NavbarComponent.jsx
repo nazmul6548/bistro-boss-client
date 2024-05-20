@@ -1,40 +1,32 @@
 "use client";
 import { Navbar, Tooltip } from "keep-react";
-// import { Navbar, TextInput } from "keep-react";
+
+import { Toggle } from "keep-react";
+
 import {
   CaretDown,
-  FacebookLogo,
-  InstagramLogo,
   
-  TwitterLogo,
 } from "phosphor-react";
-import { useContext } from "react";
+
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
+import { useContext, useState } from "react";
+
 
 export const NavbarComponent = () => {
-  const {user,loader,logout,}= useContext(AuthContext)
+  const {user,logout,}= useContext(AuthContext)
+  const [toggle, setToggle] = useState(false)
 
-  // const [theme,setTheme] = useState("light")
-
-  // useEffect(()=>{
-  //     localStorage.setItem("theme",theme);
-  //     const item = localStorage.getItem("theme");
-      
-  //         document.querySelector("html").setAttribute("data-theme",item);
-      
-  //         },[theme])  
-
-
-  // const handleTheme = e => {
-     
-  //     if (e.target.checked) {
-  //         setTheme("dark")
-  //     }else{
-  //         setTheme("light")
-  //     }
-    
-  // }
+//   const setToggle = e => {
+       
+//     if (e.target.checked) {
+//         setToggle("dark")
+//     }else{
+//         setToggle("light")
+//     }
+  
+// }
+   
   return (
     <Navbar  className="bg-[#000000] fixed z-10 w-full max-w-screen-xl bg-opacity-30 text-yellow-50">
       <Navbar.Container className="flex items-center  justify-between">
@@ -52,22 +44,10 @@ export const NavbarComponent = () => {
             tag="ul"
             className="lg:flex hidden items-center justify-between gap-4"
           >
-           
-            {/* <Navbar.Link
-              icon={<FacebookLogo size={20} color="#444" />}
-              iconAnimation={false}
-            />
-            <Navbar.Link */}
-              {/* icon={<InstagramLogo size={20} color="#444" />}
-              iconAnimation={false}
-            />
-            <Navbar.Link
-              icon={<TwitterLogo size={20} color="#444" />}
-              iconAnimation={false}
-            /> */}
+        
+        <Toggle bgColor="primary" label="Toggle" size="md" withIcon={true} onChange={setToggle} />
             <li>Home</li>
-            
-            {/* <li>LogIn</li> */}
+           
             <NavLink to="/register">Register</NavLink>
             {/*  */}
             {user ? (
@@ -103,7 +83,7 @@ export const NavbarComponent = () => {
           </Navbar.Container>
           <Navbar.Container className="flex gap-1">
             <Navbar.Toggle className="block" />
-            {/* Menu */}
+           
           </Navbar.Container>
         </Navbar.Container>
         <Navbar.Collapse
@@ -120,16 +100,14 @@ export const NavbarComponent = () => {
                 <Navbar.Link
               linkName="LogIn"
 
-            //   icon={<CaretDown size={20} />}
-            //   className="!py-0"
+         
             />
             </NavLink>
             <NavLink to="/register">
                 <Navbar.Link
               linkName="Register"
 
-            //   icon={<CaretDown size={20} />}
-            //   className="!py-0"
+           
             />
             </NavLink>
             <div>
@@ -142,6 +120,7 @@ export const NavbarComponent = () => {
             />
             <Navbar.Link linkName="About" className="!py-0" />
             <Navbar.Link linkName="Resources" className="!py-0" />
+            
           </Navbar.Container>
         </Navbar.Collapse>
       </Navbar.Container>
