@@ -2,8 +2,9 @@ import { useContext, useEffect } from "react";
 import { AuthContext } from "./AuthProvider";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 import useAxiosSecure from "./useAxiosSecure";
+import useCart from "./useCart";
 // import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 
@@ -13,6 +14,7 @@ const Latestblog = ({j}) => {
   const navigate =useNavigate()
   const location = useLocation()
   const axiosSecure = useAxiosSecure();
+  const [,refetch] =useCart()
   const handleButton = () => {
     if (user && user.email) {
       const cartItem = {
@@ -34,6 +36,7 @@ const Latestblog = ({j}) => {
               showConfirmButton: false,
               timer: 1500
             });
+            refetch()
           }
         })
         .catch(error => {

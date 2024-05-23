@@ -35,7 +35,7 @@ if (!i) {
 
     return (
         <Tabs>
-      <div className=' bg-[#000000]  text-[#d1d5db] p-10'>
+      <div className=' bg-gradient-to-b pt-28 from-[#09203F] to-[#537895]  text-[#d1d5db] p-10'>
         <h1 className='text-5xl font-bold font-lato text-center'>All Food Categories</h1>
         <p className='font-lato text-center w-full md:w-full lg:w-3/4 m-auto pt-6 pb-10'>An on-site job requires employees to work physically at a designated location, typically within a company's office or workplace. Employees commute to the office and perform their duties in a traditional office setting, collaborating closely with colleagues and supervisors in person. </p>
       <div className='flex items-center justify-center font-normal md:font-bold text-xs md:text-2xl font-lato'>
