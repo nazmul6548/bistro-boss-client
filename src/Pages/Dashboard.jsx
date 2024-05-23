@@ -2,7 +2,9 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../component/useAxiosSecure";
 import { FaUsers } from "react-icons/fa6";
 import Swal from "sweetalert2";
-import { VscRepoFetch } from "react-icons/vsc";
+
+
+
 
 const Dashboard = () => {
 const axiosSecure= useAxiosSecure()
@@ -14,7 +16,7 @@ return res.data;
         }
     })
 
-    const handleDelete =(id) => {
+    const handleDelete =(item) => {
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -25,7 +27,7 @@ return res.data;
             confirmButtonText: "Yes, delete it!"
           }).then((result) => {
             if(result.isConfirmed){
-                axiosSecure.delete(`/users/${users._id}`)
+                axiosSecure.delete(`/users/${item._id}`)
                 .then(res => {
                     if(res.data.deletedCount > 0){
                         refetch()
@@ -35,9 +37,41 @@ return res.data;
                             icon: "success"
                           });
                     }
-                })
+                }).catch(error => {
+                    console.error("Error deleting user:", error);
+                    Swal.fire({
+                        title: "Error!",
+                        text: "There was a problem deleting the user.",
+                        icon: "error"
+                    });
+                });
             }
           })
+    }
+    const handleAdmin =(item) => {
+        axiosSecure.patch(`/users/admin/${item._id}`)
+        
+        .then(res => {
+        if (res.data.modifiedCount > 0) {
+            refetch()
+            Swal.fire({
+                position: "Are you sure?",
+            title: "You won't be able to revert this!",
+            icon: "success",
+            showCancelButton: false,
+            Timer:1500
+            })
+        
+        }
+        }).catch(error => {
+            console.error("Error promoting user:", error);
+            Swal.fire({
+                title: "Error!",
+                text: "There was a problem promoting the user.",
+                icon: "error"
+            });
+        });
+
     }
     return (
         <div>
@@ -62,7 +96,9 @@ return res.data;
                 <td className="p-4 text-[15px] text-gray-800">{item.name}</td>
                 <td className="p-4 text-[15px] text-gray-800">{item.email}</td>
                 <td className="p-4 text-[25px] text-orange-600">
-                    <button onClick={()=> handleAdmin(item)}><FaUsers /></button>
+                    { item.role === "admin" ? "Admin" : 
+                        <button onClick={()=> handleAdmin(item)}><FaUsers /></button>
+                    }
                 </td>
             
                 <td className="p-4">
@@ -72,7 +108,7 @@ return res.data;
                       <path d="M303.85 138.388c-8.284 0-15 6.716-15 15v127.347c0 21.034-17.113 38.147-38.147 38.147H68.904c-21.035 0-38.147-17.113-38.147-38.147V100.413c0-21.034 17.113-38.147 38.147-38.147h131.587c8.284 0 15-6.716 15-15s-6.716-15-15-15H68.904C31.327 32.266.757 62.837.757 100.413v180.321c0 37.576 30.571 68.147 68.147 68.147h181.798c37.576 0 68.147-30.571 68.147-68.147V153.388c.001-8.284-6.715-15-14.999-15z"/>
                     </svg>
                   </button> */}
-                  <button onClick={()=>handleDelete(item._id)} className="mr-4" title="Delete">
+                  <button onClick={()=>handleDelete(item)} className="mr-4" title="Delete">
                     <svg xmlns="http://www.w3.org/2000/svg" className="w-5 fill-red-500 hover:fill-red-700" viewBox="0 0 24 24">
                       <path d="M19 7a1 1 0 0 0-1 1v11.191A1.92 1.92 0 0 1 15.99 21H8.01A1.92 1.92 0 0 1 6 19.191V8a1 1 0 0 0-2 0v11.191A3.918 3.918 0 0 0 8.01 23h7.98A3.918 3.918 0 0 0 20 19.191V8a1 1 0 0 0-1-1Zm1-3h-4V2a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v2H4a1 1 0 0 0 0 2h16a1 1 0 0 0 0-2ZM10 4V3h4v1Z"/>
                       <path d="M11 17v-7a1 1 0 0 0-2 0v7a1 1 0 0 0 2 0Zm4 0v-7a1 1 0 0 0-2 0v7a1 1 0 0 0 2 0Z"/>
