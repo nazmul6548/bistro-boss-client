@@ -24,7 +24,7 @@ const Home = () => {
      <TabCategory></TabCategory>
      <Extrasec></Extrasec>
      <Gallery></Gallery>
-     <Dashboard></Dashboard>
+   
     
         </div>
     );

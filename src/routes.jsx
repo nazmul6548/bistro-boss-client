@@ -8,6 +8,9 @@ import Home from "./Pages/Home";
 import LogIn from "./Pages/LogIn";
 import Register from "./Pages/Register";
 import TabCategory from "./component/TabCategory";
+import DeshBoard from "./Pages/DeshBoard";
+import Dashboard from "./Pages/Dashboard";
+
 
 
 
@@ -46,6 +49,16 @@ export const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path:"dashboard",
+    element:<DeshBoard></DeshBoard>,
+    children:[
+   {
+    path:"userallfordashboard",
+    element:<Dashboard></Dashboard>
+   }
+    ]
+  }
 ]);
 
 

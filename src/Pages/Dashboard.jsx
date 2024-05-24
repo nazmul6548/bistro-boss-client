@@ -74,7 +74,7 @@ return res.data;
 
     }
     return (
-        <div>
+        <div className="w-full">
             <h1> hi {users.length}</h1>
             
             <div className="font-sans overflow-x-auto">

@@ -55,6 +55,8 @@ export const NavbarComponent = () => {
             <li>Home</li>
            
             <NavLink to="/register">Register</NavLink>
+            <NavLink to="dashboard">Dasahboard</NavLink>
+
             {/*  */}
             {user ? (
             <div className="dropdown dropdown-hover">
