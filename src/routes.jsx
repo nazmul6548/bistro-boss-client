@@ -10,6 +10,8 @@ import Register from "./Pages/Register";
 import TabCategory from "./component/TabCategory";
 import DeshBoard from "./Pages/DeshBoard";
 import Dashboard from "./Pages/Dashboard";
+import PrivateRoute from "./component/PrivateRoute";
+import AddItem from "./Pages/AddItem";
 
 
 
@@ -51,11 +53,15 @@ export const router = createBrowserRouter([
   },
   {
     path:"dashboard",
-    element:<DeshBoard></DeshBoard>,
+    element:<PrivateRoute><DeshBoard></DeshBoard></PrivateRoute>,
     children:[
    {
     path:"userallfordashboard",
     element:<Dashboard></Dashboard>
+   },
+   {
+path:"additem",
+element:<AddItem></AddItem>
    }
     ]
   }

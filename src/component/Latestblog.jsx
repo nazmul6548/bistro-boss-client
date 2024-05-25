@@ -80,7 +80,7 @@ const Latestblog = ({j}) => {
               alt="Blog Post 1"
               className="w-full h-96 object-cover overflow-hidden"
             />
-            <div className="p-6 absolute bottom-0 left-0 right-0 bg-slate-400 opacity-90">
+            <div className="p-6 absolute bottom-0 left-0 right-0 bg-white opacity-90">
               <span className="text-sm block text-gray-600 mb-2">{category}</span>
               <h3 className="text-xl font-bold text-[#333]">{name}</h3>
               <div className="h-0 overflow-hidden group-hover:h-16 group-hover:mt-4 transition-all duration-300">

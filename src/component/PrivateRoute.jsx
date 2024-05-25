@@ -2,7 +2,8 @@ import { useContext } from "react";
 
 import { Navigate, useLocation } from "react-router-dom";
 import { Audio } from 'react-loader-spinner'
-import { AuthContext } from "./authprovider/AuthProvider";
+import { AuthContext } from "./AuthProvider";
+// import { AuthContext } from "./authprovider/AuthProvider";
 // import { ToastContainer, toast } from "react-toastify";
 
 const PrivateRoute = ({children}) => {

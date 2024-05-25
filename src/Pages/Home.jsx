@@ -6,6 +6,8 @@ import TabCategory from "../component/TabCategory";
 import Extrasec from "../component/Extrasec";
 import Gallery from "../component/Gallery";
 import Dashboard from "./Dashboard";
+import NewsLetter from "../component/NewsLetter";
+import TextAnimation from "../component/TextAnimation";
 
 
 
@@ -21,8 +23,10 @@ const Home = () => {
     return (
         <div>
      <Slide></Slide>
+     <TextAnimation></TextAnimation>
      <TabCategory></TabCategory>
      <Extrasec></Extrasec>
+     <NewsLetter></NewsLetter>
      <Gallery></Gallery>
    
     
