@@ -12,6 +12,7 @@ import DeshBoard from "./Pages/DeshBoard";
 import Dashboard from "./Pages/Dashboard";
 import PrivateRoute from "./component/PrivateRoute";
 import AddItem from "./Pages/AddItem";
+import AdminRoute from "./component/AdminRoute";
 
 
 
@@ -61,7 +62,7 @@ export const router = createBrowserRouter([
    },
    {
 path:"additem",
-element:<AddItem></AddItem>
+element:<AdminRoute><AddItem></AddItem></AdminRoute>
    }
     ]
   }

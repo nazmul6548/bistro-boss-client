@@ -7,7 +7,7 @@ import { AuthContext } from "./AuthProvider";
 // import { ToastContainer, toast } from "react-toastify";
 
 const PrivateRoute = ({children}) => {
-    const {loader,user}  = useContext(AuthContext)
+    const {user,loader}= useContext(AuthContext)
     // console.log(user);
     const location =useLocation()
 
