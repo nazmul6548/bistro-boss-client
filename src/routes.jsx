@@ -1,8 +1,4 @@
-
-import {
-  createBrowserRouter
-  
-} from "react-router-dom"; 
+import { createBrowserRouter } from "react-router-dom";
 import Root from "./Root";
 import Home from "./Pages/Home";
 import LogIn from "./Pages/LogIn";
@@ -14,58 +10,61 @@ import PrivateRoute from "./component/PrivateRoute";
 import AddItem from "./Pages/AddItem";
 import AdminRoute from "./component/AdminRoute";
 
-
-
-
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
-    children:[
+    children: [
       {
-          path:"/",
-          element:<Home></Home>,
-          loader:async () => {
-            const response = await fetch("http://localhost:5000/items");
-            if (!response.ok) {
-                throw new Response("Failed to fetch items", {
-                    status: response.status,
-                    statusText: response.statusText,
-                });
-            }
-            return response.json();
+        path: "/",
+        element: <Home></Home>,
+        loader: async () => {
+          const response = await fetch("http://localhost:5000/items");
+          if (!response.ok) {
+            throw new Response("Failed to fetch items", {
+              status: response.status,
+              statusText: response.statusText,
+            });
+          }
+          return response.json();
         },
-         
       },
       {
-          path:"/login",
-          element:<LogIn></LogIn>
+        path: "/login",
+        element: <LogIn></LogIn>,
       },
       {
-        path:"/register",
-        element:<Register></Register>
+        path: "/register",
+        element: <Register></Register>,
       },
       {
-        path:"/tab",
-        element:<TabCategory></TabCategory>,
-        
-      }
-    ]
+        path: "/tab",
+        element: <TabCategory></TabCategory>,
+      },
+    ],
   },
   {
-    path:"dashboard",
-    element:<PrivateRoute><DeshBoard></DeshBoard></PrivateRoute>,
-    children:[
-   {
-    path:"userallfordashboard",
-    element:<Dashboard></Dashboard>
-   },
-   {
-path:"additem",
-element:<AdminRoute><AddItem></AddItem></AdminRoute>
-   }
-    ]
-  }
+    path: "dashboard",
+    element: (
+      <PrivateRoute>
+        <DeshBoard></DeshBoard>
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        path: "userallfordashboard",
+        element: <Dashboard></Dashboard>,
+      },
+      {
+        path: "additem",
+        element: (
+          <AdminRoute>
+            <AddItem></AddItem>
+          </AdminRoute>
+        ),
+        // loader: ({ params }) =>
+        //   fetch(`http://localhost:5000/menu/${params.id}`),
+      },
+    ],
+  },
 ]);
-
-

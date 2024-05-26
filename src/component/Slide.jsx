@@ -29,7 +29,7 @@ const Slide = () => {
             <div className="slide slide1 flex flex-col fixed min-h-screen">
               <div>
                 <h1 className="text-3xl md:text-6xl font-bold w-3/4 m-auto font-lato text-center text-white animate__animated animate__fadeInDownBig whitespace-nowrap">
-                Vagitable Fruits
+                Vegetable Fruits
                 </h1>
                 <p className="w-3/4 m-auto text-white text-center mt-5 font-lato">An on-site job requires employees to work physically at a designated location, typically within a company's office or workplace.</p>
               </div>
