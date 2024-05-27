@@ -9,6 +9,10 @@ import Dashboard from "./Pages/Dashboard";
 import PrivateRoute from "./component/PrivateRoute";
 import AddItem from "./Pages/AddItem";
 import AdminRoute from "./component/AdminRoute";
+import Cart from "./component/Cart";
+import Payment from "./Pages/Payment";
+
+
 
 export const router = createBrowserRouter([
   {
@@ -52,6 +56,11 @@ export const router = createBrowserRouter([
     ),
     children: [
       {
+        path: "cart",
+        element: <Cart></Cart>,
+      },
+     
+      {
         path: "userallfordashboard",
         element: <Dashboard></Dashboard>,
       },
@@ -64,6 +73,10 @@ export const router = createBrowserRouter([
         ),
         // loader: ({ params }) =>
         //   fetch(`http://localhost:5000/menu/${params.id}`),
+      },
+      {
+        path:"payment",
+        element:<Payment></Payment>,
       },
     ],
   },

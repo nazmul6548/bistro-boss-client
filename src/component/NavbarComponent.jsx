@@ -45,14 +45,16 @@ export const NavbarComponent = () => {
             tag="ul"
             className="lg:flex hidden items-center justify-between gap-4"
           >
-            <div className="relative mr-3">
+         <Link to="/dashboard/cart">
+         <div className="relative mr-3">
             <MdAddShoppingCart className="font-bold text-2xl"/>
     <span
       className="bg-red-500 text-[10px] px-1.5 font-semibold min-w-[20px] h-5 flex items-center justify-center text-white rounded-full absolute -top-2 left-[60%]">{cart.length}+</span>
   </div>
+         </Link>
         
         <Toggle bgColor="primary" label="Toggle" size="md" withIcon={true} onChange={setToggle} />
-            <li>Home</li>
+           
            
             <NavLink to="/register">Register</NavLink>
             <NavLink to="dashboard">Dasahboard</NavLink>

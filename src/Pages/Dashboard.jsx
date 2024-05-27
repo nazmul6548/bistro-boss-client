@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../component/useAxiosSecure";
 import { FaUsers } from "react-icons/fa6";
 import Swal from "sweetalert2";
+import Cart from "../component/Cart";
 
 
 
@@ -77,7 +78,7 @@ return res.data;
         <div className="w-full">
             <h1> hi {users.length}</h1>
             
-            <div className="font-sans overflow-x-auto">
+            <div className="font-sans overflow-x-auto flex ">
   <table className="min-w-full bg-white">
     <thead className="bg-gray-100 whitespace-nowrap">
       <tr>
@@ -121,8 +122,11 @@ return res.data;
     </tbody>
   </table>
 </div>
-            
+{/* <div>
+  <Cart></Cart>
+</div> */}
         </div>
+    
     );
 };
 
