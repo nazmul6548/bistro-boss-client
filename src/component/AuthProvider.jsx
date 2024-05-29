@@ -55,6 +55,7 @@ const axiosPublic = useAxiosPublic()
                 .then(res => {
                     if(res.data.token){
                         localStorage.setItem("access_token",res.data.token);
+                        setLoader(false)
                     }
                 })
             }else{

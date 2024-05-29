@@ -11,8 +11,9 @@ import AddItem from "./Pages/AddItem";
 import AdminRoute from "./component/AdminRoute";
 import Cart from "./component/Cart";
 import Payment from "./Pages/Payment";
-
-
+import Adminhome from "./Pages/Adminhome";
+import UserHome from "./Pages/UserHome";
+import Paymenthis from "./Pages/Paymenthis";
 
 export const router = createBrowserRouter([
   {
@@ -59,7 +60,15 @@ export const router = createBrowserRouter([
         path: "cart",
         element: <Cart></Cart>,
       },
-     
+      {
+        path: "userhome",
+        element: <UserHome></UserHome>,
+      },
+      {
+        path: "adminhome",
+        element:<AdminRoute><Adminhome></Adminhome></AdminRoute>
+      },
+
       {
         path: "userallfordashboard",
         element: <Dashboard></Dashboard>,
@@ -75,9 +84,13 @@ export const router = createBrowserRouter([
         //   fetch(`http://localhost:5000/menu/${params.id}`),
       },
       {
-        path:"payment",
-        element:<Payment></Payment>,
+        path: "payment",
+        element: <Payment></Payment>,
       },
+      {
+        path:"paymenthis",
+        element:<Paymenthis></Paymenthis>
+      }
     ],
   },
 ]);

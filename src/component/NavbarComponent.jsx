@@ -12,12 +12,14 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
 import { useContext, useState } from "react";
 import useCart from "./useCart";
+import useAdmin from "./useAdmin";
 
 
 export const NavbarComponent = () => {
   const {user,logout,}= useContext(AuthContext)
   const [toggle, setToggle] = useState(false)
   const [cart] = useCart();
+  const [isAdmin] =useAdmin()
 //   const setToggle = e => {
        
 //     if (e.target.checked) {
@@ -58,6 +60,12 @@ export const NavbarComponent = () => {
            
             <NavLink to="/register">Register</NavLink>
             <NavLink to="dashboard">Dasahboard</NavLink>
+            {
+              user && isAdmin && <NavLink to="/dashboard/adminhome">AdminHome</NavLink>
+            }
+            {
+              user && !isAdmin && <NavLink to="/dashboard/userhome">UserHome</NavLink>
+            }
 
             {/*  */}
             {user ? (
